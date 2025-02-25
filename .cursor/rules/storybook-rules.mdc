@@ -1,0 +1,173 @@
+---
+description: storybook, typescript, react, styled components
+globs: 
+alwaysApply: false
+---
+# Project Structure and Conventions
+
+## Directory Structure
+```
+src/
+├── components/          # Component library using Atomic Design
+│   ├── atoms/          # Basic building blocks
+│   │   └── Button/     # Example atomic component
+│   │       ├── Button.tsx
+│   │       ├── Button.css
+│   │       └── Button.stories.ts
+│   ├── molecules/      # Combinations of atoms
+│   │   └── Header/     # Example molecular component
+│   │       ├── Header.tsx
+│   │       ├── Header.css
+│   │       └── Header.stories.ts
+│   ├── organisms/      # Complex components
+│   │   └── Navigation/  # Example organism component
+│   │       ├── Navigation.tsx
+│   │       ├── Navigation.css
+│   │       └── Navigation.stories.ts
+│   └── templates/      # Page layouts
+│       └── Page/       # Example template component
+│           ├── Page.tsx
+│           ├── Page.css
+│           └── Page.stories.ts
+├── styles/             # Global styles and themes
+├── hooks/              # Custom React hooks
+├── utils/              # Utility functions
+└── types/             # TypeScript type definitions
+```
+
+## Component Organization
+Each component should be organized in its own directory following this structure:
+```
+ComponentName/
+├── ComponentName.tsx           # Main component file
+├── ComponentName.stories.tsx   # Storybook stories
+└── ComponentName.test.tsx      # Component tests
+```
+
+## Naming Conventions
+
+### TypeScript
+- Interfaces: Prefix with 'I' and use PascalCase (e.g., `IButtonProps`)
+- Types: Prefix with 'T' and use PascalCase (e.g., `TTheme`)
+- Strict null checks and no implicit any
+- Use explicit return types for functions
+
+### React Components
+- Use functional components with hooks
+- Export named components (no default exports)
+- Props interface: `I{ComponentName}Props`
+- Return type: `JSX.Element`
+- Co-locate related files (component, stories, tests)
+
+### Storybook
+- Stories alongside components
+- File naming: `{ComponentName}.stories.tsx`
+- Title format: `{AtomicLevel}/{ComponentName}`
+- Required story metadata: component, parameters, args
+- Use Component Story Format (CSF)
+- Include documentation with each story
+
+### Styled Components
+- Use theme variables for consistency
+- Naming: `Styled{ElementName}`
+- Co-locate with component
+- Use proper TypeScript types from theme
+
+## Code Style
+
+### Imports
+Order imports in the following groups with newlines between:
+1. React
+2. External dependencies
+3. Internal modules
+4. Parent components
+5. Sibling components
+6. Styles
+
+### TypeScript/JavaScript
+- Use single quotes for strings
+- Use trailing commas in multiline
+- Max line length: 80 characters
+- Tab width: 2 spaces
+- Semicolons required
+
+## Best Practices
+
+### Components
+- Keep components small and focused
+- Use proper prop naming
+- Implement error boundaries
+- Handle loading and error states
+- Use proper TypeScript types
+- Document props with JSDoc comments
+
+### Storybook
+- Include different variants and states
+- Use controls for interactive documentation
+- Add proper descriptions
+- Include accessibility information
+- Use proper action handlers
+
+### Performance
+- Use React.memo when needed
+- Implement proper memoization
+- Monitor bundle size
+- Use proper loading strategies
+
+## File References
+- @components/atoms/* - Basic UI components
+- @components/molecules/* - Composite components
+- @components/organisms/* - Complex UI sections
+- @components/templates/* - Page layouts
+- @styles/theme.ts - Theme configuration
+- @styles/global.ts - Global styles
+- @styles/styled.d.ts - Style type definitions
+
+## Common Patterns
+
+### Component Template
+```typescript
+import React from 'react';
+
+interface IComponentProps {
+  prop: type;
+}
+
+export const Component: React.FC<IComponentProps> = ({ prop }): JSX.Element => {
+  return (
+    // JSX
+  );
+};
+```
+
+### Story Template
+```typescript
+import type { Meta, StoryObj } from '@storybook/react';
+
+import { Component } from './Component';
+
+const meta: Meta<typeof Component> = {
+  title: 'AtomicLevel/Component',
+  component: Component,
+  tags: ['autodocs'],
+};
+
+export default meta;
+type TStory = StoryObj<typeof Component>;
+
+export const Default: TStory = {
+  args: {
+    // props
+  },
+};
+```
+
+### Styled Component Template
+```typescript
+import styled from 'styled-components';
+
+export const StyledComponent = styled.div`
+  // styles using theme
+  color: ${({ theme }) => theme.colors.primary};
+`;
+```

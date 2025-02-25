@@ -1,0 +1,20 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "styled-components.vscode-styled-components",
+    "formulahendry.auto-rename-tag",
+    "formulahendry.auto-close-tag",
+    "christian-kohler.path-intellisense",
+    "christian-kohler.npm-intellisense",
+    "streetsidesoftware.code-spell-checker",
+    "ms-vscode.vscode-typescript-next",
+    "bradlc.vscode-tailwindcss",
+    "steoates.autoimport",
+    "VisualStudioExptTeam.vscodeintellicode",
+    "eamodio.gitlens",
+    "usernamehw.errorlens",
+    "naumovs.color-highlight",
+    "wayou.vscode-todo-highlight"
+  ]
+}
