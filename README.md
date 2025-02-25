@@ -14,11 +14,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
@@ -28,6 +23,18 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run storybook`
+
+Starts Storybook in development mode.\
+Open [http://localhost:6006](http://localhost:6006) to view it in the browser.
+
+This allows you to develop and test your components in isolation.
+
+### `npm run build-storybook`
+
+Builds Storybook as a static web application.\
+You can then deploy this to any static hosting service.
 
 ### `npm run eject`
 
@@ -50,6 +57,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 ## Project Structure and Best Practices
 
 ### Directory Structure
+
 ```
 src/
 ├── components/          # Reusable components
@@ -67,6 +75,7 @@ src/
 ### Coding Standards and Best Practices
 
 #### TypeScript
+
 - Use explicit type annotations for function parameters and return types
 - Prefix interfaces with 'I' (e.g., IButtonProps)
 - Prefix type aliases with 'T' (e.g., TTheme)
@@ -75,6 +84,7 @@ src/
 - Enable strict TypeScript checks
 
 #### React
+
 - Use functional components with hooks
 - Implement proper error boundaries
 - Use React.memo() for performance optimization when needed
@@ -83,6 +93,7 @@ src/
 - Implement proper loading and error states
 
 #### Styled Components
+
 - Use theme variables for consistent styling
 - Create reusable styled components
 - Use proper component naming (StyledComponent)
@@ -91,6 +102,7 @@ src/
 - Avoid inline styles
 
 #### Storybook
+
 - Create stories for all reusable components
 - Use component story format (CSF)
 - Include documentation with each story
@@ -100,6 +112,7 @@ src/
 - Add proper accessibility information
 
 ### Component Structure
+
 ```typescript
 // ComponentName.tsx
 import React from 'react';
@@ -142,19 +155,14 @@ export const Default: Story = {
 ```
 
 ### Git Commit Standards
+
 - Use conventional commits format
 - Include ticket number in commit message
 - Keep commits atomic and focused
 - Write meaningful commit messages
 
-### Testing Standards
-- Write unit tests for all components
-- Include integration tests for complex features
-- Test accessibility compliance
-- Test responsive behavior
-- Include snapshot tests where appropriate
-
 ### Performance Guidelines
+
 - Implement code splitting
 - Use React.lazy() for component lazy loading
 - Optimize images and assets
@@ -162,9 +170,9 @@ export const Default: Story = {
 - Monitor bundle size
 
 ### Accessibility Standards
+
 - Follow WCAG 2.1 guidelines
 - Include proper ARIA labels
 - Ensure keyboard navigation
 - Maintain proper color contrast
 - Test with screen readers
-# storybook-test
